@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"data-theme="bumblebee">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Compression</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.3/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script> 
+</head>
+<body class="min-h-screen flex justify-center items-center">
+    <div class="max-w-lg w-full p-8">
+        <div class="text-center mb-6">
+        <h1 class="text-3xl text-center font-bold">Video Compression</h1>
+        <span class="text-center">Securité des applications multimédias embarquées</span>
+        </div>
+        <form action="/compress-video" method="post" enctype="multipart/form-data" class="mb-8">
+            <label for="image" class="block mb-2">Upload Video:</label>
+            <input type="file" name="video" id="video"  class="file-input file-input-bordered file-input-accent w-full" required>
+            <div class="flex justify-between items-center">
+                <label for="quality" class="block my-2">Quality:</label>
+                <span id="quality-value">80%</span>
+            </div>
+            <input type="range" min="0" max="100" value="80" class="range" name="quality" id="quality" required>
+            <button type="submit" class="mt-4 btn btn-active btn-accent w-full text-accent hover:text-white">
+                Compress
+              </button>
+        </form>
+        {% if original_video %}
+        <div class="divider">Results</div>
+        <div class="flex flex-row items-center justify-center gap-10">
+            <div class="">
+                <h2 class="font-bold mb-2">Original Video</h2>
+                <div class="indicator">
+                    <span class="indicator-item badge badge-primary">Original</span>
+                    <video controls class="rounded-lg w-44">
+                        <source src="{{ original_video }}" type="video/mkv">
+                        Your browser does not support the video element.
+                    </video>
+                </div>
+                <p>Size: {{ original_size }}</p>
+            </div>
+            <div>
+                <h2 class="font-bold mb-2 ps-2">Compressed Video</h2>
+                <div class="indicator">
+                    <span class="indicator-item badge badge-primary">-{{ compression_ratio }}%</span>
+                    <video controls class="rounded-lg w-44"> 
+                        <source src="{{ compressed_video }}" type="video/mp4">
+                        Your browser does not support the video element.
+                    </video>
+                </div>
+                <p>Size: {{ compressed_size }}</p>
+            </div>
+        </div>
+        <div class="mt-2 text-center" >
+            <a href="{{ compressed_video }}" download="compressed_video.mp4" class="btn btn-active btn-success w-full">Download</a>
+        </div>
+        {% endif %}
+    </div>
+    <footer class="text-center absolute bottom-0 w-full p-4">
+        <span>
+            Designed and Develped by <a href="https://github.com/Eljakani">
+                <span class="badge badge-primary">El Jakani Yassine</span>
+            </a> and <a href="https://github.com/Moadza">
+                <span class="badge badge-primary">Moad El Motassadeq</span>
+        </span>
+
+    </footer>
+    <script>
+        const qualityRange = document.getElementById('quality');
+        const qualityValue = document.getElementById('quality-value');
+        qualityRange.addEventListener('input', () => {
+            qualityValue.textContent = `${qualityRange.value}%`;
+        });
+    </script>
+</body>
+</html>
