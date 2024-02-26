@@ -17,18 +17,18 @@ This repository is fully deployable on Gitpod, providing a seamless development 
 ```bash
 ./run.sh
 ```
-![Screenshot from 2024-02-26 18-01-42](https://hackmd.io/_uploads/SyxrIrq2T.png)
+![img1](screenshots/01.png)
 
 Wait for the Docker image to be built and the corresponding container to be started. Once ready, the script will provide you with a link. Press and hold 'Ctrl' while clicking on the link. This action will open the application in your default web browser.
 
-![Screenshot from 2024-02-26 18-02-18](https://hackmd.io/_uploads/ByJHLSqhT.png)
+![img2](screenshots/02.png)
 
 The interface will display three available tools for compression: Image, Audio, and Video:
-![Screenshot from 2024-02-26 18-02-42](https://hackmd.io/_uploads/r1xH8rchT.png)
+![img3](screenshots/03.png)
 
 ### Image Compression
-![Screenshot from 2024-02-26 18-03-11](https://hackmd.io/_uploads/BkxrIrchT.png)
+![img4](screenshots/04.png)
 ### Audio Compression
-![Screenshot from 2024-02-26 18-03-42](https://hackmd.io/_uploads/SygSUSc26.png)
+![img5](screenshots/05.png)
 ### Video Compression
-![Screenshot from 2024-02-26 18-06-08](https://hackmd.io/_uploads/Bylr8S9nT.png)
+![img6](screenshots/06.png)
